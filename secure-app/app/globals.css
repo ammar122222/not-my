@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  background: #05070f;
+  color: #e9edf3;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Blue / purple diagonal glow panels (matches the Access Portal mockup) */
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(115deg, rgba(0, 110, 255, 0.28), transparent 45%),
+    linear-gradient(295deg, rgba(150, 0, 255, 0.3), transparent 45%);
+}
+.bg-glow-2 {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.045) 40%,
+      rgba(255, 255, 255, 0.045) 60%,
+      transparent 60%
+    ),
+    linear-gradient(
+      295deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.035) 40%,
+      rgba(255, 255, 255, 0.035) 60%,
+      transparent 60%
+    );
+}
+
+/* Frosted glass card */
+.glass-card {
+  background: rgba(38, 41, 50, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Neon inputs with gradient border on focus */
+.neon-input {
+  width: 100%;
+  padding: 14px 16px 14px 46px;
+  background: rgba(20, 22, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: 0.25s;
+}
+.neon-input::placeholder {
+  color: #8b93a3;
+}
+.neon-input:focus {
+  border-color: transparent;
+  background:
+    linear-gradient(rgba(20, 22, 30, 0.92), rgba(20, 22, 30, 0.92)) padding-box,
+    linear-gradient(90deg, #37b6ff, #8a5cff) border-box;
+  box-shadow: 0 0 16px rgba(80, 160, 255, 0.45);
+}
+
+/* Neon gradient button */
+.neon-btn {
+  padding: 15px 24px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #2fb9ff, #7a5cff);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  cursor: pointer;
+  box-shadow:
+    0 0 18px rgba(70, 170, 255, 0.55),
+    0 0 34px rgba(140, 90, 255, 0.35);
+  transition: 0.2s;
+}
+.neon-btn:hover {
+  filter: brightness(1.12);
+}
+.neon-btn:active {
+  transform: scale(0.98);
+}
+.neon-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(0.3);
+}
+
+.danger-btn {
+  background: linear-gradient(90deg, #ff5c7a, #b337ff);
+  box-shadow:
+    0 0 18px rgba(255, 92, 122, 0.5),
+    0 0 34px rgba(179, 55, 255, 0.3);
+}
+
+/* Glowing avatar badge */
+.avatar-badge {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at 35% 30%,
+    rgba(90, 220, 255, 0.22),
+    rgba(160, 80, 255, 0.25)
+  );
+  border: 2px solid rgba(140, 220, 255, 0.55);
+  box-shadow:
+    0 0 25px rgba(80, 180, 255, 0.6),
+    0 0 60px rgba(150, 80, 255, 0.45),
+    inset 0 0 25px rgba(120, 200, 255, 0.3);
+  position: relative;
+  z-index: 2;
+  margin-bottom: -72px;
+}
+.avatar-badge::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(180, 230, 255, 0.45);
+}
+
+.field-label {
+  display: block;
+  color: #eef1f6;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 9px;
+  font-weight: 600;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.55;
+}

@@ -49,7 +49,6 @@ secure-app/
 │   └── middleware.ts               # Session refresh + route protection
 ├── middleware.ts                   # Guards /admin, redirects logged-in users off /login
 ├── supabase/schema.sql             # Tables + RLS + private bucket setup
-├── sql/schema.sql                  # (same script, alternate location)
 └── .env.example                    # Environment template
 ```
 

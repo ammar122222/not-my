@@ -4,12 +4,16 @@ import LoginForm from '@/components/LoginForm';
 
 // Admin-only system: there is intentionally NO signup page or link anywhere.
 export default async function LoginPage() {
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  // If Supabase env vars aren't configured yet, still render the login UI
+  // (preview mode); actual sign-in will report a configuration error.
+  if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    const supabase = createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-  if (user) redirect('/admin');
+    if (user) redirect('/admin');
+  }
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center px-5 py-10">

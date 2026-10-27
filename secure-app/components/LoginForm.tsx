@@ -17,6 +17,14 @@ export default function LoginForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
+
+    if (!supabase) {
+      setError(
+        'Supabase is not configured yet. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local.'
+      );
+      return;
+    }
+
     setLoading(true);
 
     // Admin-only system: signInWithPassword ONLY. No signUp anywhere.
